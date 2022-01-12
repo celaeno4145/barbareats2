@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= login%>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%= render '/shared/header'%>
+    <div hidden><%=  @user =UserHide.find_by(id:params[:user])%></div>
+</head>
+<body>
+    <h1>会員情報変更</h1>
+    <h3>
+    <%= form_for @user, url: {action: 'update'} do |f| %>
+    <%= f.label :name,"名前"%>
+    <br>
+    <%= f.text_field :name,:value => @user.name %>
+    <br>
+    <%= f.label :email,"メールアドレス" %>
+    <br>
+    <%= f.text_field :email,:value => @user.email %>
+    <br>
+    <%= f.label :password,"パスワード" %>
+    <br>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.label :password_confirmation,"パスワード確認" %>
+    <br>
+    <%= f.password_field :password_confirmation %>
+    <br>
+    <%= f.label :image,"画像" %>
+    <br>
+    <%= f.file_field :image %>
+    <br>
+    <%= f.submit "変更" %>
+    <% end %>
+    <%= link_to "戻る",users_logged_in_path(user: params[:user])%>
+</body>
+</html>

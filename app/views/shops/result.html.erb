@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= render '/shared/header'%>
+    <div hidden><%= @shop3 = Shop.all%></div>
+    <title>Document</title>
+</head>
+<body>
+    <% @shop3.each do |tenpo|%>
+        <div>
+        <% if tenpo.image.attached? %>
+            <%= image_tag tenpo.image, size: '400x300' %>
+        <% end %>
+        <%= tenpo.shopname %>
+        <br>
+        </div>
+    <% end %>
+</body>
+</html>

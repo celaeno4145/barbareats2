@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= login%>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%= render '/shared/header'%>
+    <div hidden><%=  @shop =Shop.find_by(id:params[:shop])%></div>
+</head>
+<body>
+    <h1>会員情報変更</h1>
+    <h3>
+    <%= form_for @shop, url: {action: 'update'} do |f| %>
+    <%= f.label :name,"名前"%>
+    <br>
+    <%= f.text_field :name,:value => @shop.name %>
+    <br>
+    <%= f.label :shopname,"店舗名" %>
+    <br>
+    <%= f.text_field :shopname,:value => @shop.shopname %>
+    <br>
+    <%= f.label :shopadd,"住所" %>
+    <br>
+    <%= f.text_field :shopadd,:value => @shop.shopadd %>
+    <br>
+    <%= f.label :tell,"電話番号" %>
+    <br>
+    <%= f.text_field :tell,:value => @shop.tell %>
+    <br>
+    <%= f.label :email,"メールアドレス" %>
+    <br>
+    <%= f.text_field :email,:value => @shop.email %>
+    <br>
+    <%= f.label :password,"パスワード" %>
+    <br>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.label :password_confirmation,"パスワード確認" %>
+    <br>
+    <%= f.password_field :password_confirmation %>
+    <br>
+    <%= f.label :image,"店舗画像" %>
+    <br>
+    <%= f.file_field :image %>
+    <br>
+    <%= f.submit "変更" %>
+    <% end %>
+    <%= link_to "戻る",shops_logged_in_path(shop: params[:shop])%>
+</body>
+</html>

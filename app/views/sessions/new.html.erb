@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class=head>BarBar Eats</li>
+        <li><%= image_tag 'babaekan2.png', size: '50x50'%></li>
+        <li class=head_right><%= link_to "店舗新規登録","/shops/new"%></li>
+        <li class=head_right><%= link_to "ユーザー新規登録","/users/new"%></li>
+        <li class=head_right><%= link_to "ログイン","/sessions/new"%></li>
+    </ul>
+    <h1>ログイン</h1>
+    <h3>
+    <%= form_for(:session, url: "/users/logged_in") do |f| %>
+    <%= f.label :email,"メールアドレス" %>
+    <br>
+    <%= f.email_field :email %>
+    <br>
+    <%= f.label :password,"パスワード" %>
+    <br>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.submit "ログイン" %>
+    <% end %>
+    </h3>
+    <br>
+    <p><%= link_to "新規登録","/users/new"%></p>
+</body>
+</html>

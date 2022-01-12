@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= login%>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%= render '/shared/header'%>
+    
+    <div hidden><%= @shop =Shop.find_by(id:params[:shop])%> </div>
+</head>
+<body>
+    <h1>店舗ページ</h1>
+    <% if @shop.image.attached? %>
+        <%= image_tag @shop.image, size: '400x300' %>
+    <%end%>
+    <h3><%= link_to "会員情報編集", shops_setting_url(shop: @shop)%></h3>
+    <h3><%= link_to "退会", '/users/break'%></h3>
+    <%= link_to "ログアウト", '/shops/not_logged_in' , method: :delete %>
+</body>
+</html>

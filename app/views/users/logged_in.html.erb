@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%= login%>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%= render '/shared/header'%>
+    <div hidden><%= @user =UserHide.find_by(id:params[:user])%> </div>
+</head>
+<body>
+    <h1>ユーザーページ</h1>
+    <% if @user.image.attached? %>
+        <%= image_tag @user.image, size: '400x300' %>
+    <%end%>
+    <h3><%= link_to "会員情報編集", users_setting_url(user: @user)%></h3>
+    <h3><%= link_to "退会", '/users/break'%></h3>
+    <%= link_to "ログアウト", '/users/not_logged_in' , method: :delete %>
+</body>
+</html>

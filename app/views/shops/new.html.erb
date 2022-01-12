@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <%= render '/shared/header'%>
+</head>
+<body>
+    <h1>店舗新規登録</h1>
+    <h3>
+    <%= form_for @shop, url: {action: 'create'}  do |f| %>
+    <%= f.label :name,"名前" %>
+    <br>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :shopname,"店舗名" %>
+    <br>
+    <%= f.text_field :shopname %>
+    <br>
+    <%= f.label :shopadd,"住所" %>
+    <br>
+    <%= f.text_field :shopadd %>
+    <br>              
+    <%= f.label :tell,"電話番号" %>
+    <br>
+    <%= f.text_field :tell %>
+    <br>
+    <%= f.label :email,"メールアドレス" %>
+    <br>
+    <%= f.text_field :email %>
+    <br>
+    <%= f.label :password,"パスワード" %>
+    <br>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.label :password_confirmation,"パスワード確認" %>
+    <br>
+    <%= f.password_field :password_confirmation %>
+    <br>
+    <%= f.submit "登録" %>
+    <% end %>
+    </h3>
+</body>
+</html>
