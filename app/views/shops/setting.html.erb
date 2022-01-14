@@ -13,6 +13,9 @@
     <h1>会員情報変更</h1>
     <h3>
     <%= form_for @shop, url: {action: 'update'} do |f| %>
+    <div hideen>
+    <%= f.hidden_field :id,:value => @shop.id%>
+    </div>
     <%= f.label :name,"名前"%>
     <br>
     <%= f.text_field :name,:value => @shop.name %>

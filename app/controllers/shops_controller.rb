@@ -20,21 +20,10 @@ class ShopsController < ApplicationController
     @shop = Shop.find_by(shop_params)
   end
   def update
-    @shop = Shop.find_by(params[:shop][:id])
+    @shop = Shop.find_by(id: params[:shop][:id])
     @shop.update(shop_params)
-    redirect_to shops_logged_in_path(shop: @shop)
-  end
-  def register
-    @shop = Shop.new
-    @shop.name = params[:shop][:name]
-    @shop.shopname = params[:shop][:shopname]
-    @shop.shopadd = params[:shop][:shopadd]
-    @shop.tell = params[:shop][:tell]
-    @shop.email = params[:shop][:email]
-    @shop.password = params[:shop][:password]
-    @shop.password_confirmation = params[:shop][:password_confirmation]
-    @shop.break = true
     @shop.save
+    redirect_to shops_logged_in_path(shop: @shop)
   end
   def create
     @shop = Shop.new(shop_params)
@@ -44,9 +33,7 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    @shop2 = params
-      params.require(:shop).permit(:name, :email, :password, :password_confirmatio, :tell, :shopname, :shopadd,:image)
-      
+    params.require(:shop).permit(:name, :email, :password, :password_confirmatio, :tell, :shopname, :shopadd, :image)
   end
 
   helper_method :login
