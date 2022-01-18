@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'shops/not_logged_in'
   get 'shops/setting'
   get 'shops/result'
+  get 'shops/detail/:shopid' => 'shops#detail'
   get 'sessions/new'
   get 'main/index'
   get 'main/show'

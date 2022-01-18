@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= render '/shared/header'%>
+    <style>
+    div{
+        text-align: center;
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <h2><%= @shop[:shopname]%></h2>
+    <% if @shop.image.attached? %>
+        <%= image_tag @shop.image, size: '400x300'%>
+    <% end %>
+    <h3>住所 : <%= @shop[:shopadd]%></h3>
+    <h3>電話番号 : <%= @shop[:shoptell]%></h3>
+    </div>
+</body>
+</html>

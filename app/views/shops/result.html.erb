@@ -9,14 +9,28 @@
     <title>Document</title>
 </head>
 <body>
+<h1>店舗一覧</h1>
+    <div class=waku>
     <% @shop3.each do |tenpo|%>
-        <div>
-        <% if tenpo.image.attached? %>
-            <%= image_tag tenpo.image, size: '400x300' %>
-        <% end %>
+        <div class=yoko>
         <%= tenpo.shopname %>
         <br>
+        <% if tenpo.image.attached? %>
+            <%= image_tag tenpo.image, size: '400x300'%>
+        <% end %>
         </div>
     <% end %>
+    </div>
 </body>
 </html>
+<style>
+.yoko{
+    text-align:center;
+    width: 50%;
+    box-sizing: border-box;
+}
+.waku{
+    display:flex;
+    flex-wrap:wrap;
+}
+</style>

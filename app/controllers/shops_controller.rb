@@ -35,6 +35,9 @@ class ShopsController < ApplicationController
   def shop_params
     params.require(:shop).permit(:name, :email, :password, :password_confirmatio, :tell, :shopname, :shopadd, :image)
   end
-
+  
+  def detail
+    @shop = Shop.find_by(:id => params[:shopid])
+  end
   helper_method :login
 end
