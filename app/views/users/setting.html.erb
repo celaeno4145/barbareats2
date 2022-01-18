@@ -13,6 +13,7 @@
     <h1>会員情報変更</h1>
     <h3>
     <%= form_for @user, url: {action: 'update'} do |f| %>
+    <%= f.hidden_field :id,:value => @user.id%>
     <%= f.label :name,"名前"%>
     <br>
     <%= f.text_field :name,:value => @user.name %>
