@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     redirect_to users_logged_in_path(user: @user)
   end
   def create
-    @user = User_Hide.new(user_params)
+    @user = UserHide.new(user_params)
     @user.break = true
     @user.save
     redirect_to sessions_new_path
