@@ -39,7 +39,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    @user2 = params
       params.require(:user_hide).permit(:name, :email, :password, :password_confirmatio,:image)
       
   end
