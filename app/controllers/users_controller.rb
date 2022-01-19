@@ -10,16 +10,6 @@ class UsersController < ApplicationController
     @user = User.find_by(:user_id => params[:user_id])
   end
 
-  def register
-    @user = UserHide.new
-    @user.name = params[:user][:user_name]
-    @user.email = params[:user][:user_mail]
-    @user.password = params[:user][:user_pass]
-    @user.password_confirmation = params[:user][:user_pass_kakunin]
-    @user.break = true
-    @user.save
-    
-  end
   def new
     @user = UserHide.new
   end
@@ -32,15 +22,15 @@ class UsersController < ApplicationController
     redirect_to users_logged_in_path(user: @user)
   end
   def create
-    @user = UserHide.new(user_params)
+    @user = User_Hide.new(user_params)
     @user.break = true
     @user.save
     redirect_to sessions_new_path
   end
 
   def user_params
-      params.require(:user_hide).permit(:name, :email, :password, :password_confirmatio,:image)
-      
+    params.require(:user_hide).permit(:name, :email, :password, :password_confirmatio,:image)
+    
   end
   helper_method :login
 end
